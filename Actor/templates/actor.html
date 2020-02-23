@@ -1,0 +1,17 @@
+<form method="POST">
+  {% csrf_token %}
+  <!--  -->
+  {{forms}}
+  <button type="submit">save</button>
+</form>
+
+{{message}}
+
+<h1>List of Actors</h1>
+{% for data in datas %}
+<h5>
+  {{ data.name_actor }}
+  <a href="/Actor/add_actor/?id_edit={{ data.id_actor }}">แก้ไข</a>
+  <a href="/Actor/delete_by_id_actor/?id_actor={{ data.id_actor }}">ลบ</a>
+</h5>
+{%endfor%}
